@@ -142,17 +142,39 @@ def version_12(dict1: dict, dict2: dict) -> dict:
     просто добавляются в новый словарь. Например, для входящих
     словарей {‘a’:200, ‘b’:50} и {‘a’:100, ‘c’:500} выходным
     словарем будет {‘a': 300, ‘b’:50, ‘c’:500}."""
-    pass
+    res_dict = {}
+    for key in dict1.keys():
+        if key in dict2:
+            res_dict.update({key: dict1.get(key) + dict2.get(key)})
+        else:
+            res_dict.update({key: dict1.get(key)})
+    for key in dict2.keys():
+        if key not in res_dict.keys():
+            res_dict.update({key: dict2.get(key)})
+    return res_dict
 
 
-def version_13():
+def version_13(list1: list, list2: list) -> dict:
     """Написать функцию, которая принимает два списка и
     возвращает словарь, в котором ключами выступают элементы
     первого списка, а значениями ключей – элементы второго.
-    Требует предусмотреть ситуации, когда один из списков или оба
+    Требуется предусмотреть ситуации, когда один из списков или оба
     будут пустыми. В ситуации, когда один список по длине больше
     другого, последние элементы большего по длине списка, не учитывать."""
-    pass
+    min_len = len(list1)
+    if min_len > len(list2):
+        min_len = len(list2)
+    res_dict = {}
+    if len(list1) == 0 and len(list2) == 0:
+        return 'Массивы пусты'
+    elif len(list1) == 0:
+        return "Первый массив пустой"
+    elif len(list2) == 0:
+        return "Второй массив пустой"
+    else:
+        for i in range(min_len):
+            res_dict.update({list1[i]: list2[i]})
+        return res_dict
 
 
 def version_14():
@@ -196,3 +218,7 @@ print("Вариант 10")
 print(version_10([1, 1, 2, 13, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
 print("Вариант 11")
 print(version_11([3, 2, 1, 4, 5, 6, 7, 8, 9]))
+print("Вариант 12")
+print(version_12({"a": 200, "b": 50}, {"a": 100, "c": 500}))
+print("Вариант 13")
+print(version_13([1, 2, 3],[1]))
