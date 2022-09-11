@@ -154,7 +154,7 @@ def version_12(dict1: dict, dict2: dict) -> dict:
     return res_dict
 
 
-def version_13(list1: list, list2: list) -> dict:
+def version_13(list1: list, list2: list) -> dict or str:
     """Написать функцию, которая принимает два списка и
     возвращает словарь, в котором ключами выступают элементы
     первого списка, а значениями ключей – элементы второго.
@@ -177,23 +177,39 @@ def version_13(list1: list, list2: list) -> dict:
         return res_dict
 
 
-def version_14():
+def version_14(list1: list[dict[{bool: str}]]) -> list[str]:
     """Написать функцию, которая принимает список, состоящий из n словарей,
      где в каждом словаре присутствуют ключи
     status (True или False) и name (строка). Вернуть список,
      который будет содержать все значения ключей name в тех словарях,
     где значение status является True. В случае отсутствия таковых
     вернуть пустой список."""
-    pass
+    return_list = []
+    for dictionary in list1:
+        return_list.append(dictionary.get(True))
+    return return_list
 
 
-def version_15():
+def version_15(list1: list) -> dict:
     """Написать функцию, которая принимает на вход список,
     состоящий из n различных элементов. Вернуть словарь,
     в котором ключами являются элементы входящего списка,
     а их значениями – число повторений этих элементов во входящем
     списке."""
-    pass
+    result_dict = {}
+    values = []
+    for i in range(len(list1)):
+        if not list1[i] in values:
+            values.append(list1[i])
+
+    for i in range(len(values)):
+        count = 0
+        for j in list1:
+            if values[i] == j:
+                count += 1
+        result_dict.update({values[i]: count})
+
+    return result_dict
 
 
 print("Вариант 1")
@@ -221,4 +237,8 @@ print(version_11([3, 2, 1, 4, 5, 6, 7, 8, 9]))
 print("Вариант 12")
 print(version_12({"a": 200, "b": 50}, {"a": 100, "c": 500}))
 print("Вариант 13")
-print(version_13([1, 2, 3],[1]))
+print(version_13([1, 2, 3], [1]))
+print("Вариант 14")
+print(version_14([{True: 'cat', False: 'dog'}, {True: 'rabbit', False: 'horse'}]))
+print("Вариант 15")
+print(version_15(['1', 1, '1', 6, 6, 4, 'd', 'b', 'n', 5, 'd', 'a', '1', 'f', 4, 4, 6, 5, 'a', 4, 4, 'f']))
