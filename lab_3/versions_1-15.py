@@ -1,4 +1,29 @@
-from random import random, randrange
+from random import random, randrange, randint
+
+
+def generate_random_values_range(number_val, a, b):
+    for ind in range(number_val):
+        yield randrange(a, b)
+
+
+def generate_random_values(number_val):
+    for ind in range(number_val):
+        yield random()
+
+
+def multiply_by_2(list1):
+    for ind in list1:
+        yield ind * 2
+
+
+def return_even(list1):
+    for ind in list1:
+        if ind % 2 == 0:
+            yield ind * 2
+
+
+def generate_list(n: int) -> list[int]:
+    return [randint(1, n*n) for i in range(n)]
 
 
 def ver_1(num: int) -> list[float]:
@@ -6,10 +31,6 @@ def ver_1(num: int) -> list[float]:
     помощью генераторного выражения создает и возвращает новый список
     случайных чисел с длиной входящего числа.
     """
-    def generate_random_values(number_val):
-        for ind in range(number_val):
-            yield random()
-
     generator = generate_random_values(num)
     return [rand_val for rand_val in generator]
 
@@ -20,11 +41,7 @@ def ver_2(x: int, a: int, b: int) -> list[int]:
     новый список длинной x случайных чисел от a до b. 
     Для решения данного задания рекомендуется использовать 
     функцию random.randint()."""
-    def generate_random_values(number_val):
-        for ind in range(number_val):
-            yield randrange(a, b)
-
-    generator = generate_random_values(x)
+    generator = generate_random_values_range(x, a, b)
     return [rand_val for rand_val in generator]
 
 
@@ -33,10 +50,6 @@ def ver_3(list1: list[int]) -> list[int]:
     список, состоящий из n элементов, и с помощью генераторного
     выражения создает и возвращает список, элементами которого
     являются удвоенные элементы входящего списка."""
-    def multiply_by_2(list1):
-        for ind in list1:
-            yield ind * 2
-
     generator = multiply_by_2(list1)
     return [value for value in generator]
 
@@ -46,11 +59,6 @@ def ver_4(list1: list[int]) -> list[int]:
     список, состоящий из n элементов, и с помощью генераторного 
     выражения создает и возвращает список, содержащий только 
     четные элементы входящего списка."""
-    def return_even(list1):
-        for ind in list1:
-            if ind % 2 == 0:
-                yield ind * 2
-
     generator = return_even(list1)
     return [value for value in generator]
 
@@ -60,7 +68,6 @@ def ver_5(list1: list[int]) -> list[int]:
     список, состоящий из n элементов, и с помощью генераторного 
     выражения создает и возвращает список, содержащий только 
     положительный элементы входящего списка."""
-
 
 
 def ver_6():
@@ -75,11 +82,13 @@ def ver_7():
     создает и возвращает новый словарь, в котором ключами 
     являются элементы первого списка, а значениями ключей – элементы второго."""
 
+
 def ver_8():
     """Написать функцию, которая принимает список и с 
     помощью генераторного выражения создает и возвращает 
     словарь, где в качестве ключей будут номера позиций элементов 
     входящего словаря, а значениями – сами элементы."""
+
 
 def ver_9():
     """Написать функцию, которая принимает целочисленный 
@@ -93,6 +102,7 @@ def ver_10():
     и целое число x и с помощью генераторной функции выводит на консоль
     только те элементы входящего списка, которые больше числа x."""
 
+
 def ver_11():
     """Написать функцию, которая принимает список, состоящий из n элементов,
     и два целых числа a и b и с помощью генераторной 
@@ -100,11 +110,13 @@ def ver_11():
     списка от a до b включительно. Требуется предусмотреть
     ситуацию, когда значения a или b больше длины списка."""
 
+
 def ver_12():
     """Написать функцию, которая принимает список списков 
     и с помощью генераторного выражения создает и возвращает 
     новый список, который содержит все элементы входящих 
     списков."""
+
 
 def ver_13():
     """Написать функцию, которая принимает список и с 
@@ -112,10 +124,12 @@ def ver_13():
     список, содержащий только уникальные элементы входящего 
     списка."""
 
+
 def ver_14():
     """Написать функцию, которая принимает список словарей и с помощью
     генераторного выражения создает и возвращает новый словарь, который
     содержит все элементы входящих словарей. Ключи в словарях уникальны."""
+
 
 def ver_15():
     """Написать функцию, которая принимает строку и с помощью
@@ -126,7 +140,7 @@ def ver_15():
 
 
 if __name__ == '__main__':
-    print(ver_1(15))
-    print(ver_2(15, 0, 100))
-    print(ver_3([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-    print(ver_4([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+    print('Вариант 1 ', ver_1(15))
+    print('Вариант 2 ', ver_2(15, 0, 100))
+    print('Вариант 3 ', ver_3(generate_list(7)))
+    print('Вариант 4 ', ver_4(generate_list(10)))
