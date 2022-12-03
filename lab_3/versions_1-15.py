@@ -11,19 +11,39 @@ def generate_random_values(number_val):
         yield random()
 
 
-def multiply_by_2(list1):
+def gen_multiply_by_2(list1):
     for ind in list1:
         yield ind * 2
 
 
-def return_even(list1):
+def gen_return_even(list1):
     for ind in list1:
         if ind % 2 == 0:
             yield ind * 2
 
 
-def generate_list(n: int) -> list[int]:
-    return [randint(1, n*n) for i in range(n)]
+def gen_return_pos(list1: list[int]):
+    for ind in list1:
+        if ind >= 0:
+            yield ind
+
+
+def make_list(n: int) -> list[int]:
+    return [randint(0, n*n) for i in range(n)]
+
+
+def make_list_w_neg(n: int) -> list[int]:
+    return [randint(-n*n, n*n) for i in range(n)]
+
+
+def gen_return_dict_keys(dict1: dict):
+    for key in dict1.keys():
+        yield key
+
+
+def gen_list(list1):
+    for ind in list1:
+        yield ind
 
 
 def ver_1(num: int) -> list[float]:
@@ -50,7 +70,7 @@ def ver_3(list1: list[int]) -> list[int]:
     список, состоящий из n элементов, и с помощью генераторного
     выражения создает и возвращает список, элементами которого
     являются удвоенные элементы входящего списка."""
-    generator = multiply_by_2(list1)
+    generator = gen_multiply_by_2(list1)
     return [value for value in generator]
 
 
@@ -59,7 +79,7 @@ def ver_4(list1: list[int]) -> list[int]:
     список, состоящий из n элементов, и с помощью генераторного 
     выражения создает и возвращает список, содержащий только 
     четные элементы входящего списка."""
-    generator = return_even(list1)
+    generator = gen_return_even(list1)
     return [value for value in generator]
 
 
@@ -68,19 +88,26 @@ def ver_5(list1: list[int]) -> list[int]:
     список, состоящий из n элементов, и с помощью генераторного 
     выражения создает и возвращает список, содержащий только 
     положительный элементы входящего списка."""
+    generator = gen_return_pos(list1)
+    return [value for value in generator]
 
 
-def ver_6():
+def ver_6(dict1: dict) -> list:
     """Написать функцию, которая принимает словарь и с помощью 
     генераторного выражения создает и возвращает новый 
     список, содержащий значения ключей входящего словаря. """
+    generator = gen_return_dict_keys(dict1)
+    return [value for value in generator]
 
 
-def ver_7():
+def ver_7(list1: list, list2: list) -> dict:
     """Написать функцию, которая принимает два одинаковых по длине
     списка и с помощью генераторного выражения 
     создает и возвращает новый словарь, в котором ключами 
     являются элементы первого списка, а значениями ключей – элементы второго."""
+    generator1 = gen_list(list1)
+    generator2 = gen_list(list2)
+    return dict.fromkeys([value for value in generator1], [value1 for value1 in generator2])
 
 
 def ver_8():
@@ -142,5 +169,8 @@ def ver_15():
 if __name__ == '__main__':
     print('Вариант 1 ', ver_1(15))
     print('Вариант 2 ', ver_2(15, 0, 100))
-    print('Вариант 3 ', ver_3(generate_list(7)))
-    print('Вариант 4 ', ver_4(generate_list(10)))
+    print('Вариант 3 ', ver_3(make_list(10)))
+    print('Вариант 4 ', ver_4(make_list(10)))
+    print('Вариант 5 ', ver_5(make_list_w_neg(10)))
+    print('Вариант 6 ', ver_6({123: 'kek', 321: "mek", 'geg': 213}))
+    print('Вариант 7 ', ver_7(make_list(10), make_list(10)))
