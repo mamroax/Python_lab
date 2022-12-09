@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e923a4d7-5418-49d1-8404-51f5995d1bea" name="Changes" comment="">
+    <list default="true" id="d572b8d3-6407-4ca2-a6e3-822f92e74333" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab_10/versions_1-14.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab_5/versions_1-13.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab_6/versions_1-10.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab_7/versions_1-10.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab_8/versions_1-14.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab_9/versions_1-13.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab_4/versions_1-16.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab_4/versions_1-16.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
@@ -72,5 +82,17 @@
       <updated>1669881263539</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

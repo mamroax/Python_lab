@@ -47,8 +47,8 @@ def var6(date1: datetime, date2: datetime) -> int:
 def var7(date):
     """7. Написать функцию, которая принимает объект datetime
     и возвращает третью среду месяца."""
+    print(date)
     return date.weekday()
-
 
 
 def var8(x: int) -> list[datetime]:
@@ -127,7 +127,6 @@ def var15():
     директорию с наименованием 07."""
 
 
-
 def var16():
     """16. Написать функцию, которая принимает список списков
     и создает структуру вложенных директорий и текстовых фай-
@@ -147,13 +146,13 @@ if __name__ == "__main__":
     print('Вариант 4 ', var4(datetime.today()))
     print('Вариант 5 ', var5(datetime.today()))
     print('Вариант 6 ', var6(datetime.now(), datetime(2021, 1, 1)))
-    print('Вариант 7 ', var7(datetime.now())) # доделать
-    print('Вариант 8 ', var8(14)) # доделать
+    print('Вариант 7 ', var7(datetime.now()))  # доделать
+    print('Вариант 8 ', var8(14))  # доделать
     print('Вариант 9 ', var9(datetime.now()))
-    print('Вариант 10 ', var10('3')) # доделать
+    print('Вариант 10 ', var10('3'))  # доделать
     print('Вариант 11 ', var11('C:/Users/lefru/Desktop/python_labs/Python_lab'))
-    print('Вариант 12 ', var12('C:/Users/lefru/Desktop/python_labs/Python_lab','README.md'))
+    print('Вариант 12 ', var12('C:/Users/lefru/Desktop/python_labs/Python_lab', 'README.md'))
     print('Вариант 13 ', var13(var11('C:/Users/lefru/Desktop/python_labs/Python_lab')))
-    print('Вариант 14 ', var14())
+    print('Вариант 14 ', var14('C:/Users/lefru/Desktop/kek'))
     print('Вариант 15 ', var15())
     print('Вариант 16 ', var16())
